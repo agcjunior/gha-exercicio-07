@@ -19,8 +19,7 @@ jobs:
         run: npm ci
       - name: Lint code
         run: npm run lint
-  test:
-    id: run-tests
+  test:    
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -34,6 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Test code
+        id: run-tests
         run: npm run test
       - name: Upload test report
         if: failure() && steps.runt-tests.outcome == 'failure'
